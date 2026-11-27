@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NimbusCR Soluciones Logísticas | Transporte de carga en Costa Rica</title>
+  <meta name="description" content="Transporte terrestre de carga para empresas en todo Costa Rica: carga completa, consolidada, refrigerada y de puerto, con rastreo de envíos en línea.">
+  <meta name="theme-color" content="#0f241e">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/overpass-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <!-- incluir:encabezado activo=inicio -->
+
+  <main id="contenido">
+    <!-- Portada -->
+    <section class="portada tema-oscuro" aria-labelledby="titulo-portada">
+      <div class="contenedor pt-14 pb-14 md:pt-24 md:pb-20">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_23.5rem] lg:items-end">
+          <div>
+            <h1 id="titulo-portada">Movemos su carga por todo Costa Rica, de Caldera a Moín.</h1>
+            <p class="entrada mt-7">Transporte terrestre para empresas: carga completa, consolidada, refrigerada y de puerto. Cada envío lleva un número de guía que usted puede rastrear en línea a cualquier hora.</p>
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a class="btn btn-senal" href="/contacto.html">Solicitar cotización</a>
+              <a class="btn btn-claro" href="/servicios.html">Ver servicios</a>
+            </div>
+          </div>
+
+          <form class="rastreo-rapido" action="/rastreo.html" method="get" role="search" aria-label="Rastreo rápido de envíos">
+            <label for="guia-rapida">Rastrear un envío</label>
+            <p class="mt-1.5">Escriba el número de guía que aparece en su comprobante de recolección.</p>
+            <div class="grupo-guia mt-4">
+              <input class="campo-guia" id="guia-rapida" name="codigo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="NCR-000000" maxlength="12" required>
+              <button class="btn btn-senal" type="submit"><!-- icono:search -->Rastrear</button>
+            </div>
+          </form>
+        </div>
+
+        <figure class="mapa">
+          <figcaption class="mapa-titulo mb-5">Red de centros de distribución de NimbusCR y rutas nacionales que la conectan</figcaption>
+
+          <svg viewBox="0 0 1200 340" role="img" aria-labelledby="mapa-titulo mapa-desc">
+            <title id="mapa-titulo">Mapa esquemático de la red de NimbusCR</title>
+            <desc id="mapa-desc">Una vía principal une el puerto de Caldera, el centro de distribución de Heredia, Guápiles y el puerto de Moín por las rutas 27 y 32. Desde la vía salen ramales a Liberia por la Ruta 1, a Ciudad Quesada por la Ruta 35 y a Pérez Zeledón por la Ruta 2.</desc>
+
+            <!-- Vías -->
+            <path class="via via-ramal" pathLength="1" d="M290 180 L172 62" />
+            <path class="via via-ramal" pathLength="1" d="M590 180 L472 62" />
+            <path class="via via-ramal" pathLength="1" d="M590 180 L708 298" />
+            <path class="via" pathLength="1" d="M90 180 H1110" />
+
+            <!-- Demarcación amarilla al centro de cada vía -->
+            <path class="demarcacion demarcacion-ramal" d="M290 180 L172 62" />
+            <path class="demarcacion demarcacion-ramal" d="M590 180 L472 62" />
+            <path class="demarcacion demarcacion-ramal" d="M590 180 L708 298" />
+            <path class="demarcacion" d="M90 180 H1110" />
+
+            <!-- Rutas nacionales -->
+            <g class="escudos">
+              <g class="escudo"><rect x="216" y="111" width="30" height="21" rx="4" /><text x="231" y="126" text-anchor="middle">1</text></g>
+              <g class="escudo"><rect x="510" y="111" width="34" height="21" rx="4" /><text x="527" y="126" text-anchor="middle">35</text></g>
+              <g class="escudo"><rect x="632" y="228" width="30" height="21" rx="4" /><text x="647" y="243" text-anchor="middle">2</text></g>
+              <g class="escudo"><rect x="423" y="169.5" width="34" height="21" rx="4" /><text x="440" y="184.5" text-anchor="middle">27</text></g>
+              <g class="escudo"><rect x="983" y="169.5" width="34" height="21" rx="4" /><text x="1000" y="184.5" text-anchor="middle">32</text></g>
+            </g>
+
+            <!-- Paradas -->
+            <g class="paradas">
+              <g class="parada">
+                <circle class="nodo" cx="90" cy="180" r="9" />
+                <text class="nombre" x="72" y="222">Caldera</text>
+                <text class="detalle" x="72" y="241">Puerto del Pacífico</text>
+              </g>
+              <g class="parada">
+                <circle class="nodo" cx="172" cy="62" r="9" />
+                <text class="nombre" x="194" y="58">Liberia</text>
+                <text class="detalle" x="194" y="77">Guanacaste</text>
+              </g>
+              <g class="parada">
+                <circle class="nodo" cx="472" cy="62" r="9" />
+                <text class="nombre" x="494" y="58">Ciudad Quesada</text>
+                <text class="detalle" x="494" y="77">Zona Norte</text>
+              </g>
+              <g class="parada">
+                <circle class="anillo-central" cx="590" cy="180" r="19" />
+                <circle class="nodo-central" cx="590" cy="180" r="11" />
+                <text class="nombre" x="560" y="226" text-anchor="end">Heredia</text>
+                <text class="detalle" x="560" y="245" text-anchor="end">Centro de distribución principal</text>
+              </g>
+              <g class="parada">
+                <circle class="nodo" cx="708" cy="298" r="9" />
+                <text class="nombre" x="730" y="294">Pérez Zeledón</text>
+                <text class="detalle" x="730" y="313">Zona Sur</text>
+              </g>
+              <g class="parada">
+                <circle class="nodo" cx="880" cy="180" r="9" />
+                <text class="nombre" x="880" y="222" text-anchor="middle">Guápiles</text>
+                <text class="detalle" x="880" y="241" text-anchor="middle">Caribe norte</text>
+              </g>
+              <g class="parada">
+                <circle class="nodo" cx="1110" cy="180" r="9" />
+                <text class="nombre" x="1128" y="222" text-anchor="end">Moín</text>
+                <text class="detalle" x="1128" y="241" text-anchor="end">Puerto del Caribe</text>
+              </g>
+            </g>
+
+            <!-- Un envío recorre la vía principal y hace escala en Heredia -->
+            <g class="vehiculo">
+              <circle class="vehiculo-halo" r="15" />
+              <circle class="vehiculo-punto" r="7" />
+              <animateMotion path="M90 180 H1110" begin="2.2s" dur="12s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.42;0.56;1" keyPoints="0;0.49;0.49;1" />
+            </g>
+          </svg>
+
+          <ol class="mapa-lista">
+            <li><strong>Caldera</strong><span>Puerto del Pacífico, por la Ruta 27</span></li>
+            <li><strong>Liberia</strong><span>Guanacaste, por la Ruta 1</span></li>
+            <li><strong>Ciudad Quesada</strong><span>Zona Norte, por la Ruta 35</span></li>
+            <li class="central"><strong>Heredia</strong><span>Centro de distribución principal</span></li>
+            <li><strong>Pérez Zeledón</strong><span>Zona Sur, por la Ruta 2</span></li>
+            <li><strong>Guápiles</strong><span>Caribe norte, por la Ruta 32</span></li>
+            <li><strong>Moín</strong><span>Puerto del Caribe, por la Ruta 32</span></li>
+          </ol>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="seccion" aria-labelledby="titulo-servicios">
+      <div class="contenedor">
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+          <h2 id="titulo-servicios">Seis maneras de mover su carga</h2>
+          <p class="entrada texto-tenue medida">Desde una tarima hasta un contenedor de 40 pies. Asignamos la unidad y la ruta según el peso, el volumen y el tipo de mercadería.</p>
+        </div>
+
+        <ul class="servicios-lista mt-14">
+          <li class="servicio-item">
+            <!-- icono:truck clase="icono-lg" -->
+            <h3>Carga completa</h3>
+            <p>Un camión dedicado solo a su carga, de punto a punto y sin transbordos.</p>
+            <a class="enlace" href="/servicios.html#carga-completa">Ver detalles<span class="sr-only"> de carga completa</span></a>
+          </li>
+          <li class="servicio-item">
+            <!-- icono:boxes clase="icono-lg" -->
+            <h3>Carga consolidada</h3>
+            <p>Su carga comparte el camión con la de otros clientes y usted paga solo el espacio que ocupa.</p>
+            <a class="enlace" href="/servicios.html#carga-consolidada">Ver detalles<span class="sr-only"> de carga consolidada</span></a>
+          </li>
+          <li class="servicio-item">
+            <!-- icono:store clase="icono-lg" -->
+            <h3>Distribución en la GAM</h3>
+            <p>Entregas a comercios y clientes finales de la Gran Área Metropolitana, con ventanas horarias.</p>
+            <a class="enlace" href="/servicios.html#distribucion-gam">Ver detalles<span class="sr-only"> de distribución en la GAM</span></a>
+          </li>
+          <li class="servicio-item">
+            <!-- icono:snowflake clase="icono-lg" -->
+            <h3>Cadena de frío</h3>
+            <p>Furgones refrigerados con registro de temperatura durante todo el trayecto.</p>
+            <a class="enlace" href="/servicios.html#cadena-de-frio">Ver detalles<span class="sr-only"> de cadena de frío</span></a>
+          </li>
+          <li class="servicio-item">
+            <!-- icono:container clase="icono-lg" -->
+            <h3>Contenedores de puerto</h3>
+            <p>Acarreo de contenedores entre Moín, Caldera y la bodega de su empresa.</p>
+            <a class="enlace" href="/servicios.html#contenedores">Ver detalles<span class="sr-only"> de contenedores de puerto</span></a>
+          </li>
+          <li class="servicio-item">
+            <!-- icono:warehouse clase="icono-lg" -->
+            <h3>Almacenaje y cross-docking</h3>
+            <p>Bodega en Heredia para guardar, clasificar y redistribuir su mercadería.</p>
+            <a class="enlace" href="/servicios.html#almacenaje">Ver detalles<span class="sr-only"> de almacenaje y cross-docking</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Cómo avanza un envío -->
+    <section class="seccion bg-papel" aria-labelledby="titulo-pasos">
+      <div class="contenedor">
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+          <h2 id="titulo-pasos">Así avanza un envío</h2>
+          <p class="entrada texto-tenue medida">Desde la solicitud hasta la firma de recibido, cada cambio de etapa queda registrado y se puede consultar en el rastreo.</p>
+        </div>
+
+        <ol class="pasos mt-14">
+          <li class="paso">
+            <span class="paso-numero" aria-hidden="true">1</span>
+            <h3>Cotiza</h3>
+            <p>Nos indica origen, destino, peso y tipo de carga. En un día hábil recibe el precio y la fecha de recolección.</p>
+          </li>
+          <li class="paso">
+            <span class="paso-numero" aria-hidden="true">2</span>
+            <h3>Recolectamos</h3>
+            <p>Pasamos por la carga en la fecha acordada, la pesamos y le entregamos el número de guía.</p>
+          </li>
+          <li class="paso">
+            <span class="paso-numero" aria-hidden="true">3</span>
+            <h3>Viaja con rastreo</h3>
+            <p>La carga avanza por nuestra red de centros. Usted ve cada etapa con fecha, hora y lugar.</p>
+          </li>
+          <li class="paso">
+            <span class="paso-numero" aria-hidden="true">4</span>
+            <h3>Entregamos</h3>
+            <p>La persona destinataria firma en el dispositivo del chofer y usted recibe el comprobante con foto.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Sectores -->
+    <section class="seccion" aria-labelledby="titulo-sectores">
+      <div class="contenedor grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <div>
+          <h2 id="titulo-sectores">Para quién trabajamos</h2>
+          <p class="entrada texto-tenue mt-5 max-w-[30rem]">Empresas que despachan todas las semanas y necesitan saber, sin llamar, dónde está cada carga.</p>
+        </div>
+        <ul class="sectores">
+          <li><strong>Agroexportación</strong><span>Piña, banano, café y flores hacia los puertos, en furgón refrigerado cuando hace falta.</span></li>
+          <li><strong>Comercio y supermercados</strong><span>Reabastecimiento de tiendas y centros de distribución con entregas programadas.</span></li>
+          <li><strong>Farmacéutico y salud</strong><span>Medicamentos e insumos médicos con control de temperatura y comprobante de entrega.</span></li>
+          <li><strong>Construcción</strong><span>Materiales pesados y de gran volumen hasta el proyecto, en plataforma o furgón.</span></li>
+          <li><strong>Manufactura</strong><span>Materia prima desde el puerto y producto terminado hacia clientes de todo el país.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Misión -->
+    <section class="seccion bg-niebla-2" aria-labelledby="titulo-mision">
+      <div class="contenedor grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-20">
+        <div>
+          <h2 id="titulo-mision">Nuestra misión</h2>
+          <p class="mision-texto mt-6">Llevar la carga de las empresas costarricenses a tiempo y con información clara en cada etapa del trayecto, para que nadie tenga que llamar a preguntar dónde está su envío.</p>
+        </div>
+        <div class="texto-tenue space-y-5 lg:pt-3">
+          <p>NimbusCR empezó en 2014 en Heredia con dos camiones y un cliente agroexportador. Hoy opera siete centros de distribución conectados por las principales rutas nacionales.</p>
+          <p>La flota suma 86 unidades propias, desde furgonetas de reparto hasta cabezales para contenedores. Todas llevan GPS y cada movimiento de carga actualiza el rastreo en línea.</p>
+          <p><a class="enlace" href="/servicios.html#cobertura">Ver cobertura y tiempos de entrega</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Llamado final -->
+    <section class="llamado tema-oscuro" aria-labelledby="titulo-llamado">
+      <div class="contenedor grid gap-8 py-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:py-20">
+        <div>
+          <h2 id="titulo-llamado">¿Tiene una carga para mover?</h2>
+          <p class="entrada mt-4 max-w-[40rem]">Indíquenos origen, destino, peso y tipo de carga. Le respondemos con precio y fecha de recolección en un día hábil.</p>
+        </div>
+        <a class="btn btn-senal" href="/contacto.html">Solicitar cotización</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

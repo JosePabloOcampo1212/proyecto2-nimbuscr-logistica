@@ -1,0 +1,225 @@
+{
+  "nota": "Datos simulados con fines académicos. Cada evento indica el día relativo a la fecha de consulta (0 = hoy, -1 = ayer) y la hora local de Costa Rica.",
+  "envios": {
+    "NCR-829461": {
+      "servicio": "Cadena de frío",
+      "origen": "Ciudad Quesada",
+      "destino": "Moín",
+      "remitente": "Agroindustrial Volcán Azul S.A.",
+      "destinatario": "Terminal de exportación, Moín",
+      "contenido": "Piña fresca de exportación",
+      "peso_kg": 18400,
+      "unidad": "20 tarimas",
+      "eventos": [
+        {
+          "dia": 0,
+          "hora": "13:25",
+          "etapa": "recibido",
+          "detalle": "Carga recolectada en la planta empacadora. Temperatura inicial de la caja: 7 °C.",
+          "lugar": "Ciudad Quesada, Alajuela"
+        }
+      ],
+      "entrega_estimada": {
+        "dia": 1,
+        "hora": "10:30"
+      }
+    },
+    "NCR-935017": {
+      "servicio": "Carga consolidada",
+      "origen": "Cartago",
+      "destino": "Pérez Zeledón",
+      "remitente": "Materiales Cerro de la Muerte Ltda.",
+      "destinatario": "Depósito de materiales El Guarco, San Isidro",
+      "contenido": "Materiales de construcción",
+      "peso_kg": 1800,
+      "unidad": "4 tarimas",
+      "eventos": [
+        {
+          "dia": 0,
+          "hora": "07:40",
+          "etapa": "recibido",
+          "detalle": "Carga recolectada y guía generada.",
+          "lugar": "Paraíso, Cartago"
+        },
+        {
+          "dia": 0,
+          "hora": "11:15",
+          "etapa": "centro",
+          "detalle": "Ingreso al centro de distribución. La carga se consolida con otros envíos hacia la Zona Sur.",
+          "lugar": "Centro de distribución Heredia"
+        }
+      ],
+      "entrega_estimada": {
+        "dia": 2,
+        "hora": "11:00"
+      }
+    },
+    "NCR-573104": {
+      "servicio": "Contenedores de puerto",
+      "origen": "Caldera",
+      "destino": "Heredia",
+      "remitente": "Puerto Caldera, cita de retiro 2231",
+      "destinatario": "Electrohogar Central S.A., Barreal",
+      "contenido": "Electrodomésticos importados",
+      "peso_kg": 18900,
+      "unidad": "Contenedor seco de 40 pies",
+      "eventos": [
+        {
+          "dia": 0,
+          "hora": "08:05",
+          "etapa": "recibido",
+          "detalle": "Contenedor retirado del patio del puerto con la cita asignada.",
+          "lugar": "Puerto Caldera, Puntarenas"
+        },
+        {
+          "dia": 0,
+          "hora": "08:50",
+          "etapa": "transito",
+          "detalle": "Salida hacia Heredia por la Ruta 27.",
+          "lugar": "Caldera, Puntarenas"
+        },
+        {
+          "dia": 0,
+          "hora": "11:30",
+          "etapa": "transito",
+          "detalle": "Paso registrado por el GPS de la unidad. Avance normal.",
+          "lugar": "Atenas, Alajuela"
+        }
+      ],
+      "entrega_estimada": {
+        "dia": 0,
+        "hora": "13:30"
+      }
+    },
+    "NCR-618230": {
+      "servicio": "Distribución en la GAM",
+      "origen": "Heredia",
+      "destino": "Escazú",
+      "remitente": "Librería y Papelería Aula Viva",
+      "destinatario": "Centro educativo, San Rafael de Escazú",
+      "contenido": "Material didáctico",
+      "peso_kg": 45,
+      "unidad": "3 bultos",
+      "eventos": [
+        {
+          "dia": -1,
+          "hora": "16:40",
+          "etapa": "recibido",
+          "detalle": "Paquetes recibidos en mostrador y guía generada.",
+          "lugar": "Centro de distribución Heredia"
+        },
+        {
+          "dia": -1,
+          "hora": "18:05",
+          "etapa": "centro",
+          "detalle": "Clasificado en la ruta de reparto de San José oeste.",
+          "lugar": "Centro de distribución Heredia"
+        },
+        {
+          "dia": 0,
+          "hora": "07:10",
+          "etapa": "transito",
+          "detalle": "Salida del centro en el camión de reparto.",
+          "lugar": "Heredia"
+        },
+        {
+          "dia": 0,
+          "hora": "09:25",
+          "etapa": "reparto",
+          "detalle": "En ruta de entrega. La persona destinataria recibió un aviso por mensaje de texto.",
+          "lugar": "Escazú, San José"
+        }
+      ],
+      "entrega_estimada": {
+        "dia": 0,
+        "hora": "11:30"
+      }
+    },
+    "NCR-482915": {
+      "servicio": "Carga consolidada",
+      "origen": "Heredia",
+      "destino": "Liberia",
+      "remitente": "Distribuidora Nube Verde S.A.",
+      "destinatario": "Ferretería El Roble, Liberia",
+      "contenido": "Herramientas y repuestos",
+      "peso_kg": 320,
+      "unidad": "6 bultos",
+      "recibido_por": "A. Solano",
+      "eventos": [
+        {
+          "dia": -3,
+          "hora": "09:10",
+          "etapa": "recibido",
+          "detalle": "Carga recolectada y guía generada.",
+          "lugar": "Barreal, Heredia"
+        },
+        {
+          "dia": -3,
+          "hora": "11:40",
+          "etapa": "centro",
+          "detalle": "Ingreso al centro de distribución y consolidación con otras cargas hacia Guanacaste.",
+          "lugar": "Centro de distribución Heredia"
+        },
+        {
+          "dia": -2,
+          "hora": "05:30",
+          "etapa": "transito",
+          "detalle": "Salida hacia Guanacaste por la Ruta 1.",
+          "lugar": "Heredia"
+        },
+        {
+          "dia": -2,
+          "hora": "10:05",
+          "etapa": "centro",
+          "detalle": "Llegada al centro de distribución de destino.",
+          "lugar": "Centro de distribución Liberia"
+        },
+        {
+          "dia": -2,
+          "hora": "14:20",
+          "etapa": "reparto",
+          "detalle": "En ruta de entrega.",
+          "lugar": "Liberia, Guanacaste"
+        },
+        {
+          "dia": -2,
+          "hora": "15:35",
+          "etapa": "entregado",
+          "detalle": "Entregado. La persona destinataria firmó en el dispositivo del chofer.",
+          "lugar": "Liberia, Guanacaste"
+        }
+      ]
+    },
+    "NCR-704558": {
+      "servicio": "Contenedores de puerto",
+      "origen": "Moín",
+      "destino": "Heredia",
+      "remitente": "Terminal de Moín, cita de retiro 5810",
+      "destinatario": "Suministros Médicos Altavista S.A., Heredia",
+      "contenido": "Insumos médicos",
+      "peso_kg": 21300,
+      "unidad": "Contenedor refrigerado de 40 pies",
+      "incidencia": {
+        "titulo": "Retenido en revisión de aduana",
+        "detalle": "La aduana pidió corregir un dato de la declaración de importación. El contenedor sigue conectado a energía en el patio del puerto y sale en cuanto la agencia aduanal presente la corrección. Le avisaremos por correo cuando se libere."
+      },
+      "eventos": [
+        {
+          "dia": -1,
+          "hora": "08:30",
+          "etapa": "recibido",
+          "detalle": "Cita de puerto confirmada para el retiro del contenedor.",
+          "lugar": "Terminal de Moín, Limón"
+        },
+        {
+          "dia": -1,
+          "hora": "13:15",
+          "etapa": "recibido",
+          "detalle": "Retiro detenido: el contenedor quedó en revisión documental de aduana.",
+          "lugar": "Terminal de Moín, Limón",
+          "incidencia": true
+        }
+      ]
+    }
+  }
+}

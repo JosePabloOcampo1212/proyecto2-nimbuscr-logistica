@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto y cotización | NimbusCR Soluciones Logísticas</title>
+  <meta name="description" content="Solicite una cotización de transporte de carga a NimbusCR. Indique origen, destino, peso y tipo de carga, y reciba precio y fecha de recolección en un día hábil.">
+  <meta name="theme-color" content="#0f241e">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/overpass-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/main.js" defer></script>
+  <script src="/js/cotizacion.js" defer></script>
+</head>
+<body>
+  <!-- incluir:encabezado activo=contacto -->
+
+  <main id="contenido">
+    <header class="cabecera-pagina tema-oscuro">
+      <div class="contenedor">
+        <h1>Solicitar cotización</h1>
+        <p class="entrada mt-6">Cuéntenos qué necesita mover. Le respondemos por correo con el precio y la fecha de recolección en un día hábil.</p>
+      </div>
+      <div class="linea-ruta"></div>
+    </header>
+
+    <section class="seccion pt-12 md:pt-16" aria-label="Formulario e información de contacto">
+      <div class="contenedor grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16">
+        <form class="formulario" id="form-cotizacion" name="cotizacion" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" aria-describedby="nota-obligatorios">
+          <input type="hidden" name="form-name" value="cotizacion">
+          <p class="trampa">
+            <label>No llene este campo si es una persona: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <p class="texto-tenue text-[0.9375rem]" id="nota-obligatorios">Todos los campos son obligatorios, salvo los marcados como opcionales.</p>
+
+          <div class="aviso aviso-error resumen-errores mt-6" id="resumen-errores" tabindex="-1" role="alert">
+            <!-- icono:triangle-alert -->
+            <div>
+              <strong>Faltan datos para enviar la solicitud</strong>
+              <ul id="lista-errores"></ul>
+            </div>
+          </div>
+
+          <fieldset class="mt-6">
+            <legend>Sus datos</legend>
+            <div class="campos">
+              <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input class="control" id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="nombre-error">
+                <p class="error-campo" id="nombre-error">Escriba su nombre completo.</p>
+              </div>
+              <div class="campo">
+                <label for="empresa">Empresa <span class="opcional">(opcional)</span></label>
+                <input class="control" id="empresa" name="empresa" type="text" autocomplete="organization">
+              </div>
+              <div class="campo">
+                <label for="correo">Correo electrónico</label>
+                <input class="control" id="correo" name="correo" type="email" autocomplete="email" required aria-describedby="correo-error">
+                <p class="error-campo" id="correo-error">Escriba un correo válido, por ejemplo nombre@empresa.cr.</p>
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input class="control" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="8888-8888" pattern="^(\+?506[\s-]?)?\d{4}[\s-]?\d{4}$" required aria-describedby="telefono-error">
+                <p class="error-campo" id="telefono-error">Escriba un teléfono de 8 dígitos, por ejemplo 8888-8888.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>La carga</legend>
+            <div class="campos">
+              <div class="campo">
+                <label for="servicio">Servicio</label>
+                <select class="control" id="servicio" name="servicio" required aria-describedby="servicio-error">
+                  <option value="">Elija un servicio</option>
+                  <option>Carga completa</option>
+                  <option>Carga consolidada</option>
+                  <option>Distribución en la GAM</option>
+                  <option>Cadena de frío</option>
+                  <option>Contenedores de puerto</option>
+                  <option>Almacenaje y cross-docking</option>
+                  <option>No estoy seguro</option>
+                </select>
+                <p class="error-campo" id="servicio-error">Elija el servicio que necesita o la opción «No estoy seguro».</p>
+              </div>
+              <div class="campo">
+                <label for="tipo-carga">Tipo de carga</label>
+                <select class="control" id="tipo-carga" name="tipo_carga" required aria-describedby="tipo-carga-error">
+                  <option value="">Elija un tipo</option>
+                  <option>Carga general</option>
+                  <option>Refrigerada o congelada</option>
+                  <option>Frágil</option>
+                  <option>Materiales de construcción</option>
+                  <option>Contenedor</option>
+                </select>
+                <p class="error-campo" id="tipo-carga-error">Elija el tipo de carga.</p>
+              </div>
+              <div class="campo">
+                <label for="peso">Peso aproximado en kilogramos</label>
+                <input class="control" id="peso" name="peso_kg" type="number" inputmode="numeric" min="1" max="30000" step="1" required aria-describedby="peso-error">
+                <p class="error-campo" id="peso-error">Escriba un peso entre 1 y 30 000 kg.</p>
+              </div>
+              <div class="campo">
+                <label for="bultos">Cantidad de bultos o tarimas <span class="opcional">(opcional)</span></label>
+                <input class="control" id="bultos" name="bultos" type="number" inputmode="numeric" min="1" step="1">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>El trayecto</legend>
+            <div class="campos">
+              <div class="campo">
+                <label for="origen">Lugar de recolección</label>
+                <input class="control" id="origen" name="origen" type="text" placeholder="Cantón y provincia" required aria-describedby="origen-error">
+                <p class="error-campo" id="origen-error">Indique dónde recogemos la carga.</p>
+              </div>
+              <div class="campo">
+                <label for="destino">Lugar de entrega</label>
+                <input class="control" id="destino" name="destino" type="text" placeholder="Cantón y provincia" required aria-describedby="destino-error">
+                <p class="error-campo" id="destino-error">Indique dónde entregamos la carga.</p>
+              </div>
+              <div class="campo">
+                <label for="fecha">Fecha deseada de recolección <span class="opcional">(opcional)</span></label>
+                <input class="control" id="fecha" name="fecha_recoleccion" type="date" aria-describedby="fecha-error">
+                <p class="error-campo" id="fecha-error">La fecha de recolección no puede ser anterior a hoy.</p>
+              </div>
+              <div class="campo campo-ancho">
+                <label for="detalles">Detalles adicionales <span class="opcional">(opcional)</span></label>
+                <span class="ayuda" id="detalles-ayuda">Medidas, horario de bodega, si hay montacargas o cualquier dato que nos ayude a cotizar.</span>
+                <textarea class="control" id="detalles" name="detalles" rows="4" maxlength="1200" aria-describedby="detalles-ayuda"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="mt-8 border-t border-linea pt-7">
+            <div class="campo consentimiento">
+              <input id="consentimiento" name="consentimiento" type="checkbox" value="Acepta" required aria-describedby="consentimiento-error">
+              <div>
+                <label for="consentimiento">Acepto que NimbusCR use estos datos solo para responder esta cotización.</label>
+                <p class="error-campo" id="consentimiento-error">Marque la casilla para poder enviar la solicitud.</p>
+              </div>
+            </div>
+            <button class="btn btn-ruta mt-7 w-full sm:w-auto" type="submit">Enviar solicitud de cotización</button>
+          </div>
+        </form>
+
+        <aside class="lg:pt-2" aria-labelledby="titulo-contacto">
+          <h2 id="titulo-contacto" class="text-[1.375rem] leading-tight">Otras formas de contacto</h2>
+          <ul class="contacto-datos mt-5">
+            <li><!-- icono:phone --><div><strong>Teléfono</strong><span>800-6462-871</span></div></li>
+            <li><!-- icono:clock --><div><strong>Horario de oficina</strong><span>Lunes a viernes, de 7:00 a 18:00. Sábados, de 8:00 a 12:00.</span></div></li>
+            <li><!-- icono:map-pin --><div><strong>Oficinas centrales</strong><span>Centro de distribución Heredia, Barreal de Heredia.</span></div></li>
+          </ul>
+
+          <h2 class="mt-10 text-[1.375rem] leading-tight">Qué pasa después</h2>
+          <ol class="despues mt-2">
+            <li>Un ejecutivo de cuentas revisa su solicitud y, si falta algún dato, le llama.</li>
+            <li>Recibe la cotización por correo en un día hábil, con precio y fecha de recolección.</li>
+            <li>Si la acepta, agendamos la recolección y le asignamos un número de guía para el rastreo.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="seccion bg-papel" aria-labelledby="titulo-preguntas">
+      <div class="contenedor grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+        <h2 id="titulo-preguntas">Preguntas frecuentes</h2>
+        <div class="preguntas">
+          <details>
+            <summary>¿Cuánto tarda la cotización?</summary>
+            <p>Un día hábil desde que recibimos la solicitud. Si la envía un viernes después de las 18:00, la respuesta llega el lunes.</p>
+          </details>
+          <details>
+            <summary>¿Pueden recoger la carga en mi bodega?</summary>
+            <p>Sí. Recogemos en cualquier dirección dentro de la zona de cobertura. Si su bodega no tiene montacargas o andén, indíquelo en los detalles para enviar una unidad con plataforma elevadora.</p>
+          </details>
+          <details>
+            <summary>¿Qué necesito para enviar carga refrigerada?</summary>
+            <p>La carga debe estar a la temperatura de transporte al momento de la recolección. Indique en la solicitud el rango de temperatura requerido; el furgón llega preenfriado.</p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si la carga se daña en el trayecto?</summary>
+            <p>Cada guía incluye un seguro básico que cubre daño o pérdida hasta ₡5 000 000. Para mercadería de mayor valor se cotiza una póliza adicional junto con el transporte.</p>
+          </details>
+          <details>
+            <summary>¿Cómo pago el servicio?</summary>
+            <p>Por transferencia bancaria o SINPE contra factura electrónica. Las empresas con despachos frecuentes pueden solicitar crédito a 30 días.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

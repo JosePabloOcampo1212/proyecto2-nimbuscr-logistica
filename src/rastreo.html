@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rastreo de envíos | NimbusCR Soluciones Logísticas</title>
+  <meta name="description" content="Consulte dónde está su carga con el número de guía de NimbusCR. Vea la etapa actual, la fecha estimada de entrega y el historial del envío.">
+  <meta name="theme-color" content="#0f241e">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/overpass-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/overpass-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script src="/js/main.js" defer></script>
+  <script src="/js/rastreo.js" defer></script>
+</head>
+<body>
+  <!-- incluir:encabezado activo=rastreo -->
+
+  <main id="contenido">
+    <header class="cabecera-pagina tema-oscuro">
+      <div class="contenedor">
+        <h1>Rastreo de envíos</h1>
+        <p class="entrada mt-6">Escriba el número de guía de su comprobante de recolección para ver en qué etapa va su carga y cuándo llega.</p>
+      </div>
+      <div class="linea-ruta"></div>
+    </header>
+
+    <section class="seccion pt-12 md:pt-16" aria-label="Consulta de guía">
+      <div class="contenedor max-w-[60rem]">
+        <form class="buscador" id="form-rastreo" action="/rastreo.html" method="get" role="search" aria-label="Buscar envío por número de guía">
+          <label for="codigo">Número de guía</label>
+          <span class="ayuda texto-tenue mt-1 block text-[0.9375rem]" id="codigo-ayuda">Formato NCR seguido de seis dígitos, por ejemplo NCR-482915.</span>
+          <div class="grupo-guia">
+            <input class="campo-guia" id="codigo" name="codigo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="NCR-000000" maxlength="12" aria-describedby="codigo-ayuda" required>
+            <button class="btn btn-ruta" type="submit"><!-- icono:search -->Buscar</button>
+          </div>
+
+          <div class="mt-7 border-t border-linea pt-6">
+            <p class="font-bold" id="titulo-demos">Guías de demostración</p>
+            <p class="texto-tenue mt-1 text-[0.9375rem]">Cada una muestra una etapa distinta del recorrido. Haga clic para consultarla.</p>
+            <ul class="demos mt-4" aria-labelledby="titulo-demos">
+              <li><button class="demo" type="button" data-codigo="NCR-829461"><code>NCR-829461</code><span>Recibido</span></button></li>
+              <li><button class="demo" type="button" data-codigo="NCR-935017"><code>NCR-935017</code><span>En centro de distribución</span></button></li>
+              <li><button class="demo" type="button" data-codigo="NCR-573104"><code>NCR-573104</code><span>En tránsito</span></button></li>
+              <li><button class="demo" type="button" data-codigo="NCR-618230"><code>NCR-618230</code><span>En reparto</span></button></li>
+              <li><button class="demo" type="button" data-codigo="NCR-482915"><code>NCR-482915</code><span>Entregado</span></button></li>
+              <li><button class="demo" type="button" data-codigo="NCR-704558"><code>NCR-704558</code><span>Con incidencia</span></button></li>
+            </ul>
+          </div>
+        </form>
+
+        <div class="mt-8" id="resultado" tabindex="-1">
+          <noscript>
+            <div class="aviso aviso-alerta">
+              <div><strong>El rastreo necesita JavaScript.</strong><p>Active JavaScript en su navegador para consultar la guía.</p></div>
+            </div>
+          </noscript>
+        </div>
+        <p class="sr-only" id="anuncio" role="status" aria-live="polite"></p>
+
+        <p class="texto-tenue mt-10 text-[0.9375rem]">Las guías de esta página son datos simulados con fines académicos. Las fechas se calculan a partir de la hora actual para que cada guía muestre un recorrido vigente.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

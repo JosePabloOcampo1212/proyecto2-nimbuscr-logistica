@@ -1,0 +1,19 @@
+{
+  "name": "nimbuscr-logistica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de NimbusCR Soluciones Logísticas (proyecto académico, curso 03102 UNED)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/construir.mjs && tailwindcss -i src/css/entrada.css -o dist/css/estilos.css --minify",
+    "preview": "node scripts/servir.mjs",
+    "dev": "npm run build && npm run preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}
